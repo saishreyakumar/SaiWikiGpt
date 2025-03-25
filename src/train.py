@@ -86,7 +86,6 @@ trainer = Trainer(
 )
 
 # Train
-# -----------------------------
 if __name__ == "__main__":
     trainer.train()
     model.save_pretrained(model_dir)

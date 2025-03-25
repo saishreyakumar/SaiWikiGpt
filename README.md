@@ -28,26 +28,23 @@ GPT2LMHeadModel with reduced layers for faster training.
 - Hidden size of 768 (same as BERT-base for good balance)
 - 12 attention heads for parallel attention computation
 
-**Reasoning for the Architecture**: This architecture provides a good balance between model capacity and training efficiency.
+**Reasoning for the Architecture used**: This architecture provides a good balance between model capacity and training efficiency.
 
 ### Tokenization
 
 - Using GPT-2 tokenizer (inherits vocabulary and tokenization strategy)
 - Maximum sequence length of 512 tokens
-- Efficient padding and truncation
-- Reuses proven BPE tokenization from GPT-2
+- BPE tokenization from GPT-2
 
-**Rationale**: GPT-2's tokenizer is well-tested and provides good coverage of English text while maintaining reasonable vocabulary size.
+**Reasoning for the Tokenization used**: GPT-2's tokenizer is well-tested and provides good coverage of English text while maintaining reasonable vocabulary size.
 
 ### Training Strategy
 
 - Epochs = 5: Enough for convergence on small datasets without overfitting.
 - Batch Size = 8: Works well with small VRAM setups.
 - Learning Rate = 5e-4: Aggressive enough to speed up convergence for small models.
-- Gradient Checkpointing: Saves GPU memory by recomputing parts of the graph during backprop.
-- fp16 Training: Accelerates training on GPUs that support it.
 
-**Rationale**: This is a proper trade-off between performance and speed, allowing training on CPU/low-tier GPU
+**Reasoning for the Training Strategy**: This is a proper trade-off between performance and speed, allowing training on CPU/low-tier GPU
 
 ## Project Structure
 

@@ -3,7 +3,6 @@ import os
 from datasets import load_dataset
 
 def load_wikipedia():
-    """Load and preprocess Wikipedia dataset."""
     dataset = load_dataset("wikipedia", "20220301.simple")
     texts = dataset["train"]["text"]
 
